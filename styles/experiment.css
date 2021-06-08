@@ -51,6 +51,31 @@
     padding: 10px;
 }
 
+#agent-info {
+    width: 400px;
+    float: left;
+}
+
+#agent-header {
+    font-size: 28px;
+    text-decoration: underline;
+}
+
+#agent-points-update {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 4px;
+}
+
+#agent-points-total {
+    font-size: 20px;
+    font-style: italic;
+    padding: 4px;
+}
+
+#agent-body {
+    padding: 10px;
+}
 #opponent-info {
     width: 400px;
     float: right;
@@ -103,6 +128,19 @@
 }
 
 .opponent-move-img {
+    height: 100px;
+    width: 100px;
+}
+
+.agent-move {
+    height: 100px;
+    width: 100px;
+    padding: 5px;
+    display: inline-flex;
+    border: 5px solid transparent;
+}
+
+.agent-img {
     height: 100px;
     width: 100px;
 }
