@@ -36,7 +36,7 @@ app.get("/*", function(req, res) {
     // } else {
         // res.sendFile(__dirname + "/" + file);
     // }
-    res.sendFile(__dirname + "/" + file)
+    res.sendFile(__dirname + "/" + file);
 });
 
 // socket.io will call this function when a client connects

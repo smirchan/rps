@@ -1,9 +1,17 @@
+body {
+    background-color: lightgray;
+}
+
 #experiment-container {
-    font-family: 'Average Sans';
+    font-family: 'Roboto Slab';
     width: 900px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 25px;
+    transition: 0.2s;
 }
 
 #message-container {
@@ -19,6 +27,7 @@
 #game-banner {
     font-size: 20px;
     padding: 8px;
+    margin-bottom: 50px;
 }
 
 #round-text, #round-index, #time-text, #countdown {
@@ -58,7 +67,7 @@
 
 #agent-header {
     font-size: 28px;
-    text-decoration: underline;
+    color: rgb(0, 168, 255);
 }
 
 #agent-points-update {
@@ -76,6 +85,7 @@
 #agent-body {
     padding: 10px;
 }
+
 #opponent-info {
     width: 400px;
     float: right;
@@ -83,7 +93,7 @@
 
 #opponent-header {
     font-size: 28px;
-    text-decoration: underline;
+    color: gray;
 }
 
 #opponent-points-update {
@@ -125,6 +135,7 @@
     padding: 5px;
     display: inline-flex;
     border: 5px solid transparent;
+    opacity: 0.2;
 }
 
 .opponent-move-img {
@@ -138,12 +149,55 @@
     padding: 5px;
     display: inline-flex;
     border: 5px solid transparent;
+    opacity: 0.2;
 }
 
 .agent-img {
     height: 100px;
     width: 100px;
 }
+
+.avatar {
+    margin: auto;
+    height: 100px;
+    padding-bottom: 50px;
+}
+
+.icon {
+    background-color: rgb(255, 255, 255);
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    font-size: 70px;
+    margin: auto;
+}
+.base {
+    margin: auto;
+    height: 40px;
+    width: 200px;
+    margin-top: -20px;
+}
+
+#agent-icon {
+    border: 10px solid rgb(0, 168, 255);
+}
+
+#agent-base {
+    transform: skew(-10deg);
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,168,255,0.1) 100%);
+}
+
+#opponent-icon {
+    border: 10px solid rgb(100, 100, 100);
+}
+
+#opponent-base {
+    transform: skew(10deg);
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(100,100,100,0.1) 100%);
+}
+
 
 #exp-button-container {
     padding: 10px;
@@ -152,18 +206,23 @@
 .next-button {
     background-color: white;
     color: black;
-    border: 2px solid #4CAF50;
-    font-size: 20px;
+    border: 2px solid #2f00ff;
+    font-size: 33px;
     padding: 10px 20px;
     text-align: center;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 50px 5px 2px;
+    font-family: 'Roboto Slab';
+    border-radius: 30px;
+    transition: 0.1s;
 }
 
 .next-button:hover {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
+    background-color: #f3f3f3;
+}
+
+.next-button:active {
+    background-color: #e7e7e7;
 }
 
 #schematic-img {
@@ -246,13 +305,14 @@
     background: #D3D3D3;
     height: 10px;
     line-height: 40px;
-    margin: 0 0 20px 0;
+    margin: 0 0 0px 0;
 }
 
 /* This should match sliderticks above */
 .sliderlabels {
     display: flex;
     justify-content: space-between;
+    padding: 0 12px;
 }
 
 
@@ -260,5 +320,5 @@
     display: flex;
     text-align: left;
     margin: 0 0 0 0;
-    width: 50px; /* pushes "Strongly agree/disagree" onto two lines */
+    /* width: 50px; pushes "Strongly agree/disagree" onto two lines */
 }
