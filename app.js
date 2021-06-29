@@ -20,7 +20,11 @@ const JSPATH = "/lib"; // path to static js files
 
 // Server variables
 var app = require("express")(); // initialize express server
-var server = app.listen(3000); // listen on port 3000 (nginx will proxy requests on 80 to 3000)
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+var server = app.listen(port); // listen on port 3000 (nginx will proxy requests on 80 to 3000)
 var io = require("socket.io").listen(server); // initialize socket.io
 var UUID = require("uuid"); // UUID library for generating unique IDs
 // var game_server = require(__dirname + JSPATH + "/" + "game.js"); // object for keeping track of games
