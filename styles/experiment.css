@@ -136,6 +136,7 @@ body {
     display: inline-flex;
     border: 5px solid transparent;
     opacity: 0.2;
+    transition: 0.2s;
 }
 
 .opponent-move-img {
@@ -150,6 +151,7 @@ body {
     display: inline-flex;
     border: 5px solid transparent;
     opacity: 0.2;
+    transition: 0.2s;
 }
 
 .agent-img {
@@ -176,6 +178,15 @@ body {
     height: 40px;
     width: 200px;
     margin-top: -20px;
+}
+
+#countdown {
+    position: fixed;
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+    font-size: 66px;
 }
 
 #agent-icon {
@@ -312,7 +323,8 @@ body {
 .sliderlabels {
     display: flex;
     justify-content: space-between;
-    padding: 0 12px;
+    padding: 24px 0;
+    /* padding: 0 12px; */
 }
 
 
@@ -321,4 +333,16 @@ body {
     text-align: left;
     margin: 0 0 0 0;
     /* width: 50px; pushes "Strongly agree/disagree" onto two lines */
+}
+
+#sidebar {
+    position: fixed;
+}
+
+.agent-name-current {
+    opacity: 1.0;
+}
+
+.agent-name {
+    opacity: 0.5;
 }
