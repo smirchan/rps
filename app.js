@@ -27,20 +27,18 @@ if (port == null || port == "") {
 var server = app.listen(port); // listen on port 3000 (nginx will proxy requests on 80 to 3000)
 var io = require("socket.io").listen(server); // initialize socket.io
 var UUID = require("uuid"); // UUID library for generating unique IDs
-// var game_server = require(__dirname + JSPATH + "/" + "game.js"); // object for keeping track of games
 var game_handler = require(__dirname + JSPATH + "/" + "game.js") // object for keeping track of games
 
 // Initializing server
 // General purpose getter for js files
 app.get("/*", function(req, res) {
     var file = req.params[0];
-    // if (file == "admin") { // admin endpoint returns state of game server for quick debugging
-        // res.setHeader('Content-Type', 'application/json');
-        // res.end(JSON.stringify(game_server.getState(), null, 3));
-    // } else {
-        // res.sendFile(__dirname + "/" + file);
-    // }
-    res.sendFile(__dirname + "/" + file);
+    if (file == "admin") { // admin endpoint returns state of game server for quick debugging
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(game_handler.getState(), null, 3));
+    } else {
+        res.sendFile(__dirname + "/" + file);
+    }
 });
 
 // socket.io will call this function when a client connects
@@ -58,54 +56,48 @@ initializeClient = function(client) {
     var istest = client.handshake.query.istest == "true";
     var version = client.handshake.query.version;
     // SONA completion information. In theory this can be handled client-side but we log it just in case
-    // var sona = client.handshake.query.sona;
-    // var experiment_id = client.handshake.query.experiment_id;
-    // var credit_token = client.handshake.query.credit_token;
-    // var survey_code = client.handshake.query.survey_code;
+    var sona = client.handshake.query.sona;
+    var experiment_id = client.handshake.query.experiment_id;
+    var credit_token = client.handshake.query.credit_token;
+    var survey_code = client.handshake.query.survey_code;
     // assign client to an existing game or start a new one
-    // game_server.findGame(client, version, istest, sona, experiment_id, credit_token, survey_code);
 
-    game_handler.createGame(client, version, istest)
+    // overload `version` -> can either be a version # (1, 2, 3, ..) or "pilot" which produces a series of 3 versions
+    if (version === "pilot") {
+        var versions = game_handler.getPilotVersions();
+    }
+    else {
+        var versions = [version];
+    }
+
+    client.emit("startinstructions", {versions: versions});
+
+    client.on("finished_instructions", function(data) {
+        game_handler.createGame(client, versions, istest, index=1);
+    })
 
     // handle player signal that they're ready for the next round
     client.on("next_round", function(data) {
         console.log("app.js:\t detected next round");
+        game_handler.logTimes(client, data)
         game_handler.nextRound(client, data)
-        // Tell server to move to next round
     });
 
-    client.on("user_data", function(data) {
-        console.log("app.js:\t detected user data submission")
-        // Tell server what the data was and log it
+    // handle player signal that they're ready for the next game
+    client.on("next_game", function(data) {
+        console.log("app.js:\t detected next game");
+        game_handler.nextGame(client, data);
     });
 
-    // // handle player move submissions
-    // client.on("player_move", function(data) {
-    //     console.log("app.js:\t detected player move: ", data);
-    //     game_server.processMove(client, data);
-    // });
+    // handle player submitting exit survey slider data
+    client.on("slider_submit", function(data) {
+        console.log("app.js:\t detected player Likert slider submission");
+        game_handler.recordSliderData(data);
+    });
 
-    // // handle player signal that they're ready for the next round
-    // client.on("player_round_complete", function(data) {
-    //     console.log("app.js:\t detected player round complete");
-    //     game_server.nextRound(client, data);
-    // });
-
-    // // handle player submitting exit survey free response data
-    // client.on("free_response_submit", function(data) {
-    //     console.log("app.js:\t detected player free response submission");
-    //     game_server.writeFreeRespData(data);
-    // });
-
-    // // handle player submitting exit survey slider data
-    // client.on("slider_submit", function(data) {
-    //     console.log("app.js:\t detected player Likert slider submission");
-    //     game_server.writeSliderData(data);
-    // });
-
-    // // handle disconnect
-    // client.on("disconnect", function() {
-    //     console.log("app.js:\t detected client disconnect");
-    //     game_server.clientDisconnect(client);
-    // });
+    // handle disconnect
+    client.on("disconnect", function() {
+        console.log("app.js:\t detected client disconnect");
+        game_handler.clientDisconnect(client);
+    });
 };

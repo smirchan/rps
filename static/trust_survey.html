@@ -6,9 +6,9 @@
     <div id="survey-banner">
     </div>
     <div id="survey-eval"></div>
-    <p>How likely do you think it is that Agent 1 will win the next round against Opponent A?</p>
+    <p id="eval-slider-1-text"></p>
     <div id="survey-slider-container-2">
-        <input type="range" class="slider" id="eval-slider" min="1" max="100" step="1">
+        <input type="range" class="slider" id="eval-slider-1" min="1" max="100" step="1">
         <div class="sliderticks">
             <p>0%</p><p>33%</p><p>66%</p><p>100%</p>
         </div>
@@ -17,9 +17,9 @@
         </div>
     </div>
     <br>
-    <p>How likely do you think it is that <i>you, the participant</i> would win the next round against Opponent A?</p>
+    <p id="eval-slider-2-text"></p>
     <div id="survey-slider-container-2">
-        <input type="range" class="slider" id="eval-slider" min="1" max="100" step="1">
+        <input type="range" class="slider" id="eval-slider-2" min="1" max="100" step="1">
         <div class="sliderticks">
             <p>0%</p><p>33%</p><p>66%</p><p>100%</p>
         </div>
@@ -29,7 +29,7 @@
     </div>
 
     <div id="exp-button-container">
-        <button class="next-button" id="next-slider">Continue</button>
+        <button class="next-button" id="next-round">Continue</button>
     </div>
 </div>
 </div>

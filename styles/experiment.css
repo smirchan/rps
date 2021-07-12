@@ -67,7 +67,6 @@ body {
 
 #agent-header {
     font-size: 28px;
-    color: rgb(0, 168, 255);
 }
 
 #agent-points-update {
@@ -181,32 +180,29 @@ body {
 }
 
 #countdown {
-    position: fixed;
-    width: 900px;
-    margin-left: auto;
-    margin-right: auto;
+    /* position: fixed; */
+    /* width: 900px; */
+    /* margin-left: auto; */
+    /* margin-right: auto; */
     margin-top: 5%;
     font-size: 66px;
 }
 
-#agent-icon {
-    border: 10px solid rgb(0, 168, 255);
-}
 
 #agent-base {
     transform: skew(-10deg);
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,168,255,0.1) 100%);
+    /* background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,168,255,0.1) 100%); */
+    background: rgba(100, 100, 100, 0.1);
 }
 
 #opponent-icon {
-    border: 10px solid rgb(100, 100, 100);
+    border: 10px solid rgb(181, 181, 181);
 }
 
 #opponent-base {
     transform: skew(10deg);
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(100,100,100,0.1) 100%);
+    /* background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(100,100,100,0.1) 100%); */
+    background: rgba(100, 100, 100, 0.1);
 }
 
 
@@ -339,10 +335,39 @@ body {
     position: fixed;
 }
 
-.agent-name-current {
+.agent-label-current {
     opacity: 1.0;
 }
 
-.agent-name {
-    opacity: 0.5;
+.agent-label {
+    opacity: 0.2;
+}
+
+.blue {
+    color: rgb(111, 160, 233);
+}
+
+.blue-border {
+    border: 10px solid rgb(111, 160, 233);
+}
+
+.purple {
+    color: rgb(167, 125, 216);
+}
+
+.purple-border {
+    border: 10px solid rgb(167, 125, 216);
+}
+
+.teal {
+    color: rgb(3, 171, 180);
+}
+
+.teal-border {
+    border: 10px solid rgb(3, 171, 180);
+}
+
+.icon-img {
+    width: 70px;
+    padding: 14px;
 }
