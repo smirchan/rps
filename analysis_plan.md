@@ -5,7 +5,7 @@
 
 ### Research questions
 *How do humans build up trust in an agent over time in dynamic learning environments?*
-In this experiment, we test the broad idea that human trust judgments reflect (learned) expectations about how well other agents will support joint goals in new environments.
+In this experiment, we test the idea that human trust judgments reflect (learned) expectations about how well other agents will support joint goals in new environments.
 
 
 ### Hypotheses
@@ -16,14 +16,13 @@ c) the agent’s learning ability.
 
 Therefore, when presented with a novel task in which participants and AI agents have joint goals, differences in the agents' abilities and learning rates, as well as environmental differences reflected in the task difficulty, will lead to differing levels of trust in the agents.
 
-
 ## Design Plan
 ###   Study type
  <!-- indicate whether your study will be experimental or correlational -->
  Experimental
 ###   Study design
  <!-- describe the overall design of the study (what will be manipulated and/or measured, specify whether manipulations will be between- or within-participants, etc.) -->
-The experiment will be divided into a `training` and `test` phase (using these terms loosely).
+The experiment will be divided into a `training` and `test` phase.
 In the training phase, participants will monitor the behavior of three different agents in a simulated Rock, Paper, Scissors (RPS) tournament against a common opponent. 
 Each agent will play **100** rounds against their opponent. 
 The agents will vary in their baseline ability (high/low) and learning rate (flat/positive) against the opponent. 
@@ -42,17 +41,18 @@ Agents will be implemented as noisy oracles against their AI opponent. Each agen
 
 
 ####   Independent variables
-Participants will be assigned to an *opponent competence* level and then evaluate three agents performing against that opponent: 
-*low competence, no learning* agent; *high competence, no learning* agent; and *low competence, positive learning* agent. 
-The order of the agent evaluation will be randomized. In short, evaluations of different agents will be within subjects, 
-while opponent competence (task difficulty) will be between subjects.
+Participants will be assigned to one of two *opponent competence* levels and then evaluate three confederate agents performing against that opponent: 
+* *low competence, no learning* agent
+* *high competence, no learning* agent 
+* *low competence, positive learning* agent
+
+All three agents will be evaluated by all subjects in a randomized sequence, while opponent competence (task difficulty) will be manipulated between subjects.
 
 ####   Dependent variables
 Participants will evaluate agents by responding to prompts about the agent and opponent competence every **5** rounds. 
 The evaluation prompts will be two continuous Likert scales asking participants: 
 a) How likely is Agent {1, 2, 3} to beat the opponent in the next round? 
 b) How likely would you (the participant) be to beat the opponent in the next round?
-
 
 ###   Study design: evaluation protocol 
 
@@ -94,19 +94,22 @@ Specifically, we test whether participants are sensitive to an agent's competenc
 ### 1. How well do participants assess an agent's competence in this environment?
 To understand how well people evaluate competence in this environment, we will examine average responses to the slider scales indicating each agent's likelihood 
 of beating the AI opponent over time and the participant's own ability to beat the AI opponent during the training phase.
-*If people are sensitive to baseline differences in competence:* The win probability should be different for the high and low baseline agents.
-*If people are sensitive to learning:* The reported win probability should increase for the learning agent, but stay relatively stable for the baseline agents.
-*If people are sensitive to task difficulty:* The reported probability that participants would beat the AI opponent should be different for those
+
+* If people are sensitive to baseline differences in competence: The win probability should be different for the high and low baseline agents.
+* If people are sensitive to learning: The reported win probability should increase for the learning agent, but stay relatively stable for the baseline agents.
+* If people are sensitive to task difficulty: The reported probability that participants would beat the AI opponent should be different for those
 viewing the `novice` opponent and those viewing the `expert` opponent.
 
+To evaluate each of these hypotheses, we will fit linear mixed-effects models predicting ratings from agent type (high, low, learning), block number (1-20), agent type x block number interaction, and opponent difficulty (expert vs. novice), with random slopes and intercepts for the effect of agent type across participants. 
+
+`lmer(rating ~ agentType + blockNum + agentType:blockNum + opponentType + (1 + agentType | subjID))`
+
 ### 2. How do trust judgments reflect information about an agent's competence, learning, and task difficulty?
-To understand how people's trust in an agent incorporates information about the agent's competence, learning, and task difficulty, we will examine average responses
-to the slider scales indicating each agent's likelihood of beating a *new* opponent during the test phase.
+To understand how people's trust in an agent incorporates information about the agent's competence, learning, and task difficulty, we will examine average responses to the slider scales indicating each agent's likelihood of beating a *new* opponent during the test phase.
 
 As with the competence judgments over time, we expect the *one-shot* judgments about new opponents to incorporate what participants know about each agent's 
 baseline ability, learning, and the environments in which they have viewed the agents perform (difficult or easy). 
 Here, our primary question concerns whether people's generalizations about the `learning` agent will differ from the more static (high competence) agent. 
-
 
 ## Model
 Our modeling approach will try to capture each of the two empirical analyses described above: how people estimate latent ability or competence, 
