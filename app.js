@@ -7,22 +7,19 @@
  * To run this locally:
  * 1. cd rps/
  * 2. `node app.js`
- * 3. in browser, visit http://localhost:3000/index.html
- *    -> to run a test version, visit http://localhost:3000/index.html?&mode=test
- *    -> to run a bot version, visit http://localhost:3000/index.html?&ver=2
- *    -> append the same &mode=test to the bot version for testing
- *    -> to view status of game_server, visit http://localhost:3000/admin
+ * 3. in browser, visit http://localhost:{PORT}/index.html
  */
 
 
 // GLOBALS
 const JSPATH = "/lib"; // path to static js files
+const DEFAULT_PORT = 8855; // port for cogtoolslab server
 
 // Server variables
 var app = require("express")(); // initialize express server
 let port = process.env.PORT;
 if (port == null || port == "") {
-  port = 3000;
+  port = DEFAULT_PORT;
 }
 var server = app.listen(port); // listen on port 3000 (nginx will proxy requests on 80 to 3000)
 var io = require("socket.io").listen(server); // initialize socket.io
