@@ -95,14 +95,23 @@ Specifically, we test whether participants are sensitive to an agent's competenc
 To understand how well people evaluate competence in this environment, we will examine average responses to the slider scales indicating each agent's likelihood 
 of beating the AI opponent over time and the participant's own ability to beat the AI opponent during the training phase.
 
-* If people are sensitive to baseline differences in competence: The win probability should be different for the high and low baseline agents.
+* If people are sensitive to baseline differences in competence: The reported win probability should be different for the high and low baseline agents.
 * If people are sensitive to learning: The reported win probability should increase for the learning agent, but stay relatively stable for the baseline agents.
-* If people are sensitive to task difficulty: The reported probability that participants would beat the AI opponent should be different for those
+* If people are sensitive to task difficulty: The reported probability that *participants* would beat the AI opponent should be different for those
 viewing the `novice` opponent and those viewing the `expert` opponent.
 
-To evaluate each of these hypotheses, we will fit linear mixed-effects models predicting ratings from agent type (high, low, learning), block number (1-20), agent type x block number interaction, and opponent difficulty (expert vs. novice), with random slopes and intercepts for the effect of agent type across participants. 
+To evaluate the first two hypotheses, we will fit linear mixed-effects models predicting agent win probabilities from agent type (high, low, learning), block number (1-20), and agent type x block number interaction, with random slopes and intercepts for the effect of agent type across participants. 
 
-`lmer(rating ~ agentType + blockNum + agentType:blockNum + opponentType + (1 + agentType | subjID))`
+`lmer(winProb ~ agentType + blockNum + agentType:blockNum + (1 + agentType | subjID))`
+
+We predict this model will better account for participant responses than a null model that does not include agentType as a predictor. 
+
+To evaluate the third hypothesis, we will fit similar mixed-effects models predicting participant win probabilities from opponent type, random slopes and intercepts for the effect of opponent type across participants
+
+`lmer(participantWinProb ~ opponentType + opponentType:blockNum + (1 + opponentType | subjID))`
+
+We predict this model will better account for participant responses than a null model that does not include opponentType.
+
 
 ### 2. How do trust judgments reflect information about an agent's competence, learning, and task difficulty?
 To understand how people's trust in an agent incorporates information about the agent's competence, learning, and task difficulty, we will examine average responses to the slider scales indicating each agent's likelihood of beating a *new* opponent during the test phase.
