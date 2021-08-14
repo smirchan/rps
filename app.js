@@ -52,13 +52,12 @@ initializeClient = function(client) {
     // extract relevant info from client request
     var istest = client.handshake.query.istest == "true";
     var version = client.handshake.query.version;
-    // SONA completion information. In theory this can be handled client-side but we log it just in case
-    var sona = client.handshake.query.sona;
-    var experiment_id = client.handshake.query.experiment_id;
-    var credit_token = client.handshake.query.credit_token;
-    var survey_code = client.handshake.query.survey_code;
+    // SONA completion information
+    client.sona = client.handshake.query.sona;
+    client.experiment_id = client.handshake.query.experiment_id;
+    client.credit_token = client.handshake.query.credit_token;
+    client.survey_code = client.handshake.query.survey_code;
     // assign client to an existing game or start a new one
-
     // overload `version` -> can either be a version # (1, 2, 3, ..) or "pilot" which produces a series of 3 versions
     if (version === "pilot") {
         var versions = game_handler.getPilotVersions();

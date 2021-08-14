@@ -1,7 +1,9 @@
 #consent-bin {
     margin: 40px;
+    padding: 60px;
     font-size: 16px;
     font-family: "Times New Roman", Times, serif;
+    background-color: white;
 }
 
 #consent-button {
