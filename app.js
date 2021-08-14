@@ -13,7 +13,7 @@
 
 // GLOBALS
 const JSPATH = "/lib"; // path to static js files
-const DEFAULT_PORT = 8855; // port for cogtoolslab server
+const DEFAULT_PORT = 8856; // port for cogtoolslab server
 
 // Server variables
 var app = require("express")(); // initialize express server
