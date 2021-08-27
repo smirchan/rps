@@ -1,0 +1,105 @@
+{
+  "game_id": "49de8c3f-dcbd-4247-9aaa-adef2f4098a5",
+  "client_id": "a3301f62-242a-4744-8073-1f460dbd1fa4",
+  "version": "14",
+  "versions": [
+    "15",
+    "14",
+    "13"
+  ],
+  "index": 2,
+  "istest": false,
+  "game_rounds": 100,
+  "sona": "1",
+  "experiment_id": "2129",
+  "credit_token": "87e1942a617d4527b50309a2467746fd",
+  "survey_code": "35754",
+  "player2_ability_description": "expert",
+  "player2_strategy": "outcome_transition_dual_dependency",
+  "player1_initial_ability": 0.2,
+  "player1_final_ability": 0.8,
+  "game_begin_ts": "2021-08-25T16:10:17.116Z",
+  "rounds": [],
+  "survey_responses": [
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 6
+    },
+    {
+      "round_index": 0,
+      "slider_1": 5,
+      "slider_2": 6
+    },
+    {
+      "round_index": 0,
+      "slider_1": 6,
+      "slider_2": 6
+    },
+    {
+      "round_index": 0,
+      "slider_1": 6,
+      "slider_2": 5
+    },
+    {
+      "round_index": 0,
+      "slider_1": 7,
+      "slider_2": 7
+    },
+    {
+      "round_index": 0,
+      "slider_1": 7,
+      "slider_2": 7
+    },
+    {
+      "round_index": 0,
+      "slider_1": 7,
+      "slider_2": 7
+    }
+  ]
+}
