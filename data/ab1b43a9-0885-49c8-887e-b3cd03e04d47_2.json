@@ -1,0 +1,24 @@
+{
+  "game_id": "3189c024-3e6c-45ec-bfdb-6b2b21bc1893",
+  "client_id": "ab1b43a9-0885-49c8-887e-b3cd03e04d47",
+  "version": "13",
+  "versions": [
+    "14",
+    "13",
+    "15"
+  ],
+  "index": 2,
+  "istest": false,
+  "game_rounds": 100,
+  "sona": "1",
+  "experiment_id": "2129",
+  "credit_token": "87e1942a617d4527b50309a2467746fd",
+  "survey_code": "40130",
+  "player2_ability_description": "expert",
+  "player2_strategy": "outcome_transition_dual_dependency",
+  "player1_initial_ability": 0.2,
+  "player1_final_ability": 0.2,
+  "game_begin_ts": "2021-08-29T03:39:03.821Z",
+  "rounds": [],
+  "survey_responses": []
+}
