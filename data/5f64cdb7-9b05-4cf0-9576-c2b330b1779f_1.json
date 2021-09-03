@@ -1,0 +1,24 @@
+{
+  "game_id": "b4e7386f-c27b-4da9-a51b-17f787acfbb2",
+  "client_id": "5f64cdb7-9b05-4cf0-9576-c2b330b1779f",
+  "version": "11",
+  "versions": [
+    "11",
+    "10",
+    "12"
+  ],
+  "index": 1,
+  "istest": false,
+  "game_rounds": 100,
+  "sona": "1",
+  "experiment_id": "2129",
+  "credit_token": "87e1942a617d4527b50309a2467746fd",
+  "survey_code": "40155",
+  "player2_ability_description": "novice",
+  "player2_strategy": "sequence",
+  "player1_initial_ability": 0.2,
+  "player1_final_ability": 0.8,
+  "game_begin_ts": "2021-08-31T23:32:43.006Z",
+  "rounds": [],
+  "survey_responses": []
+}
